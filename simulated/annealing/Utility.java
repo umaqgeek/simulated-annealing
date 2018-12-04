@@ -1,5 +1,8 @@
 package simulated.annealing;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Utility {
@@ -81,4 +84,47 @@ public class Utility {
 	}
 
 
+        public Object[][] getCitiesFromFile(String fileName) {
+        ArrayList<Object[]> data = new ArrayList<Object[]>();
+        int numCols = 0;
+        BufferedReader br = null;
+        FileReader fr = null;
+        try {
+            fr = new FileReader(fileName);
+            br = new BufferedReader(fr);
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                if (sCurrentLine.length() > 2 && sCurrentLine.charAt(0) != '#') {
+                    Object d[] = sCurrentLine.split(",");
+                    numCols = d.length;
+                    data.add(d);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (Exception ex) {
+                System.out.println("Error: " + ex.getMessage());
+            }
+        }
+        Object objData[][] = null;
+        try {
+            objData = new Object[data.size()][numCols];
+            for (int index = 0; index < data.size(); index++) {
+                objData[index][0] = (String) data.get(index)[0];
+                objData[index][1] = Float.parseFloat((String) data.get(index)[1]);
+                objData[index][2] = Float.parseFloat((String) data.get(index)[2]);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return objData;
+    }
 }
