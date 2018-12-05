@@ -61,7 +61,7 @@ public class Tour {
 		// search first city ("MiTC Melaka")
 		int holdIndex = 0;
 		for (int cityIndex = 0; cityIndex < TourManager.numberOfCities(); cityIndex++){
-			if (getCity(cityIndex).getCityName().contains("MiTC Melaka")) {
+			if (getCity(cityIndex).getCityName().contains(SimulatedAnnealingMain.MAIN_CITY)) {
 				holdIndex = cityIndex;
 				break;
 			}
@@ -73,7 +73,7 @@ public class Tour {
 		// search last city ("MiTC Melaka")
 		holdIndex = 1;
 		for (int cityIndex = 1; cityIndex < TourManager.numberOfCities(); cityIndex++){
-			if (getCity(cityIndex).getCityName().contains("MiTC Melaka")) {
+			if (getCity(cityIndex).getCityName().contains(SimulatedAnnealingMain.MAIN_CITY)) {
 				holdIndex = cityIndex;
 				break;
 			}

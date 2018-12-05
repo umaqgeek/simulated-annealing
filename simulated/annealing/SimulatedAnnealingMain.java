@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 public class SimulatedAnnealingMain {
 
     private static DecimalFormat DF = new DecimalFormat("#,##0.00");
+    
+    public static String MAIN_CITY = "MiTC Melaka";
 
     public static void main(String[] args) {
 
@@ -31,6 +33,8 @@ public class SimulatedAnnealingMain {
             e.printStackTrace();
             System.out.println("Arguments error! System will use default config and maps.");
         }
+        
+        MAIN_CITY = (String) initCities[0][0];
 
         //Create and add our cities
 //        City city = new City("MiTC Melaka", 2.2714843f, 102.28636f);
