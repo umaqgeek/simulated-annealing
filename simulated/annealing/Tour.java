@@ -149,9 +149,9 @@ public class Tour {
 		 * To print out a list of all the cities in the tour
 		 */
 		public String toString(){
-			String s  = getCity(0).getCityName();
+			String s  = "\n- City #1: " + getCity(0).getCityName();
 			for (int i =1; i < tourSize(); i++){
-				s += " -> " + getCity(i).getCityName();
+				s += "\n- City #"+(i+1)+": " + getCity(i).getCityName();
 			}
 			return s;
 		}

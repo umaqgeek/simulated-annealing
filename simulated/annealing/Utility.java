@@ -19,10 +19,10 @@ public class Utility {
 		// double distance = Math.sqrt((xDistance*xDistance)+(yDistance*yDistance));
 
 		double distance = 0.00;
-		double 	lon1 = city1.getX(),
-						lat1 = city1.getY(),
-            lon2 = city2.getX(),
-            lat2 = city2.getY();
+		double 	lat1 = city1.getX(),
+						lon1 = city1.getY(),
+            lat2 = city2.getX(),
+            lon2 = city2.getY();
 
   	// double R = 6373.00;
     // double dlon = lon2 - lon1;
@@ -84,7 +84,7 @@ public class Utility {
 	}
 
 
-        public Object[][] getCitiesFromFile(String fileName) {
+  public Object[][] getCitiesFromFile(String fileName) {
         ArrayList<Object[]> data = new ArrayList<Object[]>();
         int numCols = 0;
         BufferedReader br = null;

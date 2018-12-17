@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class SimulatedAnnealingMain {
 
     private static DecimalFormat DF = new DecimalFormat("#,##0.00");
-    
+
     public static String MAIN_CITY = "MiTC Melaka";
 
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class SimulatedAnnealingMain {
             e.printStackTrace();
             System.out.println("Arguments error! System will use default config and maps.");
         }
-        
+
         MAIN_CITY = (String) initCities[0][0];
 
         //Create and add our cities
@@ -57,10 +57,10 @@ public class SimulatedAnnealingMain {
 //        TourManager.addCity(city8);
 //        TourManager.addCity(city9);
 //        TourManager.addCity(city);
-        
+
         for (int indexTour = 0; indexTour < initCities.length; indexTour++) {
-            TourManager.addCity(new City((String) initCities[indexTour][0], 
-                    (float) initCities[indexTour][1], 
+            TourManager.addCity(new City((String) initCities[indexTour][0],
+                    (float) initCities[indexTour][1],
                     (float) initCities[indexTour][2]));
         }
         TourManager.addCity(new City((String) initCities[0][0],
@@ -68,17 +68,17 @@ public class SimulatedAnnealingMain {
                 (float) initCities[0][2]));
 
         //Set initial temp
-        double temp = 100000;
+        double temp = 10000  ;
 
         //Set Cooling rate
-        double coolingRate = 0.003;
+        double coolingRate = 0.8;
 
         //Create random initial solution
         Tour currentSolution = new Tour();
         currentSolution.generateIndividual();
 
-        System.out.println("Total distance of initial solution: " + DF.format(currentSolution.getTotalDistance()) + " km");
-        System.out.println("Tour: " + currentSolution);
+        // System.out.println("Total distance of initial solution: " + DF.format(currentSolution.getTotalDistance()) + " km");
+        // System.out.println("Tour: " + currentSolution);
 
 		//We would like to keep track of the best solution
         //Assume best solution is the current solution
@@ -121,9 +121,9 @@ public class SimulatedAnnealingMain {
             temp *= 1 - coolingRate;
             loop++;
         }
+        System.out.println("Tour: " + best);
         System.out.println("loop: " + loop);
         System.out.println("Final solution distance: " + DF.format(best.getTotalDistance()) + " km");
-        System.out.println("Tour: " + best);
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
